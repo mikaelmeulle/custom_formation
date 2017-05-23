@@ -1,6 +1,0 @@
-<?php
-use Drupal\custom_formation\CustomEvent;
-$dispatcher = \Drupal::service('event_dispatcher');
-$event = new CustomEvent("test");
-$dispatcher->dispatch(CustomEvent::SUBMIT, $event);
-
