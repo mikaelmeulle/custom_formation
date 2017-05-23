@@ -1,0 +1,14 @@
+services:
+  custom_formation.route_subscriber:
+    class: Drupal\custom_formation\Routing\CustomRouteSubscriber
+    tags:
+      - { name: event_subscriber }
+  custom_formation.event_subscriber_example:
+    class: Drupal\custom_formation\EventSubscriber\MyCustomEventSubScriber
+    tags:
+      - { name: 'event_subscriber' }
+  
+  custom_formation.mon_service:
+    class: Drupal\custom_formation\MonService
+    arguments: ['@current_user']
+

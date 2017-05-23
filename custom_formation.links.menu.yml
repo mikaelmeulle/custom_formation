@@ -1,0 +1,6 @@
+custom_formation.settings:
+  route_name: custom_formation.settings
+  parent: system.admin_config_system
+  weight: 20
+  title: 'Custom Formation Settings'
+  description: 'enable debug messages'

@@ -1,0 +1,3 @@
+administer custom_formation:
+  title: 'Administer custom_formation'
+  description: 'Allows a user to configure custom formation'

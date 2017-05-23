@@ -1,0 +1,5 @@
+name: custom_formation
+type: module
+description: Module exemple
+core: 8.x
+package: Custom

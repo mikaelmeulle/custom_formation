@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * @file
+ * Contains custom_formation.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function custom_formation_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the custom_formation module.
+    case 'help.page.custom_formation':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module exemple') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function custom_formation_theme() {
+  return [
+    'custom_formation_hello' => [
+      'variables' => ['user_name' => NULL],
+    ],
+  ];
+}
+
+/**
+ * Log message if verbose is enabled and add basename to the message
+ */
+function _custom_formation_log_message($message, $vars = array()) {
+   $config = \Drupal::config('custom_formation.settings');
+   $verbose = $config->get('verbose');
+   if($verbose) {   	
+      $basename = $config->get('basename');
+      $real_message = ($basename != null && strlen($basename) > 0)? $basename." ".$message : $message;
+      \Drupal::logger('custom_formation')->info($real_message,$vars);
+   }
+}
+
+/**
+ * Acts when creating a new entity.
+ *
+ * This hook runs after a new entity object has just been instantiated.
+ *  Log un message lorsqu’une entité est crée
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity object.
+ *
+  * @see hook_ENTITY_TYPE_create()
+ */
+function custom_formation_entity_create(\Drupal\Core\Entity\EntityInterface $entity) {
+    _custom_formation_log_message("create @entity_type_id @label",['@entity_type_id' => $entity->getEntityTypeId(), '@label' => $entity->label()]);
+}
+
+/**
+ * Act on entities being assembled before rendering.
+ *
+ * @param &$build
+ *   A renderable array representing the entity content. The module may add
+ *   elements to $build prior to rendering. The structure of $build is a
+ *   renderable array as expected by drupal_render().
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity object.
+ * @param \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display
+ *   The entity view display holding the display options configured for the
+ *   entity components.
+ * @param $view_mode
+ *   The view mode the entity is rendered in.
+ *
+ * @see hook_entity_view_alter()
+ * @see hook_ENTITY_TYPE_view()
+ *
+ * @ingroup entity_crud
+ */
+function custom_formation_entity_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+   _custom_formation_log_message("view @entity_type_id @id",['@entity_type_id' => $entity->getEntityTypeId(), '@id' => $entity->id()]);
+}
+
+
+/*
+use Drupal\custom_formation\CustomEvent;
+$dispatcher = \Drupal::service('event_dispatcher');
+$event = new CustomEvent("test");
+$dispatcher->dispatch(CustomEvent::SUBMIT, $event);
+*/

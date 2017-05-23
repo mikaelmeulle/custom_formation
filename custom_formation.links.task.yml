@@ -1,0 +1,6 @@
+custom_formation.settings_tab:
+  route_name: custom_formation.settings
+  title: Settings
+  base_route: custom_formation.settings
+
+

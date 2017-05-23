@@ -1,0 +1,6 @@
+custom_formation.settings:
+  title: 'Custom Formation settings'
+  base_route_name: custom_formation.settings
+  names:
+    - custom_formation.settings
+

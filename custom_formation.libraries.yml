@@ -1,0 +1,23 @@
+opentip:
+  remote: http://www.opentip.org/
+  version: 2.4.6
+  license:
+  license:
+    name: MIT
+    url: https://github.com/enyo/opentip#license
+    gpl-compatible: true
+  js:
+    opentip/js/opentip.js: {preprocess: false}
+    opentip/js/adapter-jquery.js: {preprocess: false}
+  css:
+    component:
+      opentip/css/opentip.css: {}
+
+opentip-drupal:
+    version: VERSION
+    js:
+      js/opentip-drupal.js: {preprocess: false}
+    dependencies:
+      - core/jquery
+      - core/drupalSettings
+      - custom_formation/opentip

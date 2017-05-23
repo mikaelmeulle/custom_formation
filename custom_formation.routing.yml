@@ -1,0 +1,39 @@
+custom_formation.formulaire1:
+  path: '/formulaire-exemple'
+  defaults:
+    _title: 'exemple de formulaire'
+    _form: '\Drupal\custom_formation\Form\ExampleForm'
+  requirements:
+    _permission: 'access content'
+
+custom_formation.settings:
+  path: '/admin/config/system/custom_formation'
+  defaults:
+    _form: 'Drupal\custom_formation\Form\CustomFormationSettingsForm'
+    _title: 'Custom formation Settings'
+  requirements:
+    _permission: 'administer custom_formation'
+
+custom_formation.controlleur_exemple_routeSimple:
+  path: '/exemple'
+  defaults:
+    _controller: '\Drupal\custom_formation\Controller\ControlleurExemple::routeSimple'
+    _title: 'Exemple de route simple'
+  requirements:
+    _permission: 'access content'
+
+custom_formation.controlleur_avec_injection_exemple:
+  path: '/exemple2'
+  defaults:
+    _controller: '\Drupal\custom_formation\Controller\ControllerWithInjection::methode'
+    _title: "Exemple de route, avec un controlleur qui utilise l'injection de dependance"
+  requirements:
+    _permission: 'access content'
+
+custom_formation.controlleur_avec_injection_et_service_custom:
+  path: '/exemple3'
+  defaults:
+    _controller: '\Drupal\custom_formation\Controller\ControllerWithInjection2::methode'
+    _title: "Exemple de route, avec un controlleur qui utilise l'injection de dependance et un service custom"
+  requirements:
+    _permission: 'access content'
