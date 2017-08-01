@@ -4,7 +4,7 @@ services:
     tags:
       - { name: event_subscriber }
   custom_formation.event_subscriber_example:
-    class: Drupal\custom_formation\EventSubscriber\MyCustomEventSubScriber
+    class: Drupal\custom_formation\EventSubscriber\MyCustomEventSubscriber
     tags:
       - { name: 'event_subscriber' }
   

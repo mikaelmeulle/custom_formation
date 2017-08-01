@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains \Drupal\custom_formation\EventSubscriber\MyCustomEventSubScriber.
+ * Contains \Drupal\custom_formation\EventSubscriber\MyCustomEventSubscriber.
  */
 namespace Drupal\custom_formation\EventSubscriber;
 use Drupal\Core\Config\ConfigCrudEvent;
@@ -9,11 +9,11 @@ use Drupal\Core\Config\ConfigEvents;
 use Drupal\custom_formation\CustomEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 /**
- * Class MyCustomEventSubScriber.
+ * Class MyCustomEventSubscriber.
  *
- * @package Drupal\custom_formation\\EventSubscriber
+ * @package Drupal\custom_formation\EventSubscriber
  */
-class MyCustomEventSubScriber implements EventSubscriberInterface {
+class MyCustomEventSubscriber implements EventSubscriberInterface {
   /**
    * {@inheritdoc}
    */
